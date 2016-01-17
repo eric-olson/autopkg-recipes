@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the current release version of ProVideoServer and imports into Munki.
+
+</string>
+	<key>Identifier</key>
+	<string>com.github.eric-olson.munki.ProVideoServer</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>ProVideoServer</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/ProVideoServer</string>
+		<key>SPARKLE_FEED_URL</key>
+		<string>https://www.renewedvision.com/update/ProVideoServer.php</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>
+            ProVideoServer is a broadcast quality multi-channel video server with synchronization and switcher control features. Usable on Mac-based laptops or desktop machines, PVS is a video playback solution for churches of all sizes, especially ideal for high-quality, video-teaching experiences at satellite churches.</string>
+			<key>display_name</key>
+			<string>ProVideoServer</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.eric-olson.download.ProVideoServer</string>
+	<key>Process</key>
+	<array>
+        <dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
